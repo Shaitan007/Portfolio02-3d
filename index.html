@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    
+    <script src="vantaEffect.js"></script>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <section id="BirdsSection">
+        <div id="Birds"></div>
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                VANTA.BIRDS({
+                    el: "#Birds",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    backgroundColor: 0x5695e1,
+                    birdSize: 1.10
+                });
+            });
+        </script>
+        <div class="container header-about">
+            <header class="header">
+                <nav>
+                    <ul>
+                        <li><a href="#BirdsSection">ABOUT</a></li>
+                        <li><a href="#cardsSection">Project</a></li>
+                        <li><a href="#ContactSection">Contact US</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="about">
+                <h1>HI</h1>
+                <h2>My name is <span style="color:#FFD700">Bharat Bhushan Aswal</span></h2>
+                <h3>BSC.IT graduate with a passion for technology and innovation</h3>
+                <p>Eager to explore and contribute to the tech world.</p>
+                <p>With a strong foundation in computer applications, I am excited to take on new challenges and expand my skills."</p>
+            </div>
+        </div>
+    </section>
+
+<div id="about-me" class="about-me" >
+       <h1 class="sweet-title">ABOUT ME</h1>
+    <h3>A dedicated IT professional with a BSc in Information Technology. </h3>
+      <h3>  I have a strong passion for technology, particularly in web development and IT asset management. </h3>
+       <h3> My expertise lies in crafting efficient and visually appealing web pages using<span style="color:#165bfb"> HTML, CSS, JavaScript, and Python</span></h3>
+       <h3> I'm always eager to learn and embrace new challenges, whether it's optimizing a user interface or managing IT assets effectively.</h3>
+        <h3>Currently, I'm exploring opportunities to grow in the IT field, with a keen interest in both technical and support roles.</h3>
+
+<script>
+
+    var text = document.querySelector("h1");
+    var subtitle = document.querySelector("p");
+
+text.addEventListener("input", function() {
+  this.setAttribute("data-text", this.innerText);
+});
+
+
+	const minAxisValue = -45;
+	const maxAxisValue = 45;
+
+	const minAxisValue2 = -1000;
+	const maxAxisValue2 = 1000;
+
+	const minAxisValue3 = 1000;
+	const maxAxisValue3 = -1000;
+
+	const minEventValue = 0;
+	const maxEventValue = 1000;
+	
+        text.style.setProperty("--axis", 0);
+        text.style.setProperty("--axis2", 0);
+        text.style.setProperty("--axis3", 0);
+
+
+document.addEventListener('mousemove', function(e) {
+  setPosition(e);
+});
+
+document.addEventListener('touchmove', function(e) {
+  setPosition(e);
+});
+
+function setPosition(e) {	
+	fluidAxisVariation(minAxisValue, maxAxisValue, minEventValue, maxEventValue, e.pageX, "--axis", text);
+	fluidAxisVariation(minAxisValue2, maxAxisValue2, minEventValue, maxEventValue, e.pageY, "--axis2", text);
+	fluidAxisVariation(minAxisValue3, maxAxisValue3, minEventValue, maxEventValue, e.pageX, "--axis3", text);
+
+}
+
+
+// Fluid Axis Variation
+function fluidAxisVariation(minimumAxisValue, maximumAxisValue, minimumEventValue, maximumEventValue, eventValue, axisCustomPropertyName, element) {
+
+	const minAxisValue = minimumAxisValue;
+	const maxAxisValue = maximumAxisValue;
+    const minEventValue = minimumEventValue;
+	const maxEventValue = maximumEventValue;
+	const currentEventValue = eventValue;
+
+	const eventPercent = (currentEventValue - minEventValue) / (maxEventValue - minEventValue);
+	const fontAxisScale = eventPercent * (minAxisValue - maxAxisValue) + maxAxisValue;
+
+	const newAxisValue = currentEventValue > maxEventValue
+	   ? minAxisValue
+       : currentEventValue < minEventValue
+   			? maxAxisValue
+   			: fontAxisScale;
+	
+
+    element.style.setProperty(axisCustomPropertyName, newAxisValue);
+
+}
+
+</script>
+
+
+
+</div>
+
+
+    <section id="cardsSection" class="cards-section">
+        <div class="cards-container">
+            <ul class="cards">
+                <li class="cards__item">
+                    <div class="card">
+                        <div class="card">
+                            <img src="https://phoneky.co.uk/thumbs/screensavers/down/new/anime/anime-girl_98JsSC5q.gif" alt="Your Image Description" class="card-image">
+                        </div>
+                        <div class="card__content">
+                            <div class="card__title"><b>AI Blog Generator</b></div>
+                            <p class="card__text">A website that lets users input a word or a paragraph, and AI generates a blog on it.</p>
+                            <form action="https://bharatbhushan.pythonanywhere.com/">
+                                <button class="btn btn--block card__btn">Button</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="cards__item">
+                    <div class="card">
+                        <div class="card_">
+                            <img src="https://tenor.com/en-GB/view/anime-computer-pc-playing-gaming-gif-8674130.gif" alt="Your Image Description" class="card-image">
+                        </div>
+                        <div class="card__content">
+                            <div class="card__title"><b>Portfolio-01</b></div>
+                            <p class="card__text">A sleek, modern portfolio website showcasing projects and skills, with smooth navigation and a responsive design for an impressive online presence.</p>
+                            <form action="https://shaitan007.github.io/Portfolio">
+                                <button class="btn btn--block card__btn">Button</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="cards__item">
+                    <div class="card">
+                        <div class="card_">
+                            <img src="https://tenor.com/en-GB/view/shigure-ui-dance-anime-virtual-virtual-youtuber-anime-gif-3789638931289815611.gif" >
+                        </div>
+                        <div class="card__content">
+                            <div class="card__title"><b>ALEX - VIRTUAL ASSISTANT</b></div>
+                            <p class="card__text">Alex excels at understanding natural language, making appointments, answering questions, and providing useful information.</p>
+                            <button class="btn btn--block card__btn">Button</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="ContactSection">
+        <footer class="footer">
+            <div class="waves">
+                <div class="wave" id="wave1"></div>
+                <div class="wave" id="wave2"></div>
+                <div class="wave" id="wave3"></div>
+                <div class="wave" id="wave4"></div>
+            </div>
+            <ul class="menu">
+                <li class="menu__item">
+                    <a class="menu__link" href="path/to/your/resume.pdf" download="Resume.pdf"><b>Resume</b></a>
+                </li>
+            </ul>
+            <ul class="social-icon">
+                <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/Shaitan007">
+                    <ion-icon name="logo-Github"></ion-icon>
+                </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="mailto:bharatbhushanaswal@gmail.com?subject=hello%20Here&body=Message%20here">
+                    <ion-icon name="logo-Google"></ion-icon>
+                </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/in/bharat-bhushan-aswal-166718123">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/bharat_bhushan_aswal?igsh=MTNjendsZmp6aGZhcQ==">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
+            </ul>
+        </footer>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </section>
+</body>
+</html>
