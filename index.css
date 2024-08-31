@@ -169,6 +169,7 @@ nav ul li a:hover {
     text-align: center;
     padding: 8px;
     margin:12px;
+    margin-bottom: 1%;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
@@ -260,7 +261,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga" on;
 }
-
+#project{
+    justify-content: center;
+    font-size: 3.5rem;
+    margin-bottom:5%;
+    text-align: center;
+}
 .cards-container{
 margin-top: 0%;
 }
@@ -282,7 +288,7 @@ img {
 }
 
 .btn--block {
-    color:#fff;
+    color:#333;
     background-color: #007BFF;
   display: block;
   width: 100%;
