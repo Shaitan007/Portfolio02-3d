@@ -17,23 +17,31 @@ html, body {
 
 
 
-
-html, body {
-    overflow: hidden; /* Hide the scrollbar */
-    height: 100%;
-    width: 100%;
-}
-
+/* Hide scrollbar but allow vertical scrolling */
 body {
-    overflow-y: scroll; /* Enable vertical scrolling */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  overflow-y: scroll; 
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 body::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
+  display: none;  /* Safari and Chrome */
 }
 
+
+/* transictin scetion */
+/* about section first one */
+#about {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Final visible state after animation */
+#about.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 
 
@@ -148,7 +156,7 @@ nav ul li a:hover {
     background-color: #dad9d9;
     background-size: cover;
     width: 100%;
-    border-color:#3586ff;
+    
 }
 
 .about-me h1{
