@@ -16,6 +16,30 @@ html, body {
 }
 
 
+/*wave upper one */
+
+.wave-upper {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  height:10px ;
+  width: 100%;
+  height: auto;
+  animation: moveWave 10s linear infinite;
+  overflow:hidden ;
+}
+
+@keyframes moveWave {
+  0% {
+    transform: translatex(0);
+  }
+  100% {
+    transform: translatex(100%);
+  }
+}
+
+
+
 
 /* Hide scrollbar but allow vertical scrolling */
 body {
@@ -149,15 +173,30 @@ nav ul li a:hover {
 
 
 
-.about-me{
-    position: relative;
-    margin-top: 7%;
-    padding-top: 4%;
-    background-color: #dad9d9;
-    background-size: cover;
-    width: 100%;
-    
+
+
+
 }
+#BirdsSection {
+  position: relative;
+  z-index: 1;
+}
+
+#about-me {
+  position: relative;
+  z-index: 2;
+    padding: 20px;
+    color: white;
+
+}
+#BirdsSection {
+  padding-bottom: 50px; /* Adds space below the Birds section */
+}
+
+#about-me {
+  margin-top: -150px; /* Adds space above the About Me section */
+}
+
 
 .about-me h1{
     padding: 2% 0%  2%;
