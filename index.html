@@ -91,15 +91,84 @@
             });
         </script>
 </section>
-   
 <section id="about-me" class="about-me">
-        <h1 class="sweet-title">ABOUT ME</h1>
-        <h3>A dedicated IT professional with a BSc in Information Technology.</h3>
-        <h3>I have a strong passion for technology, particularly in web development and IT asset management.</h3>
-        <h3>My expertise lies in crafting efficient and visually appealing web pages using <span style="color:#165bfb">HTML, CSS, JavaScript, and Python</span></h3>
-        <h3>I'm always eager to learn and embrace new challenges, whether it's optimizing a user interface or managing IT assets effectively.</h3>
-        <h3>Currently, I'm exploring opportunities to grow in the IT field, with a keen interest in both technical and support roles.</h3>
-</section>
+<div class="typewriter-container">
+    <h1 class="sweet-title">ABOUT ME</h1>
+    <h3 class="typewriter">
+   
+    </div>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    
+      
+    </style>
+    
+<script>document.addEventListener("DOMContentLoaded", function() {
+    const typewriterContainer = document.querySelector(".typewriter-container");
+    const typewriterElement = document.querySelector(".typewriter");
+    const texts = [
+        "A dedicated IT professional with a BSc in Information Technology.",
+        "I have a strong passion for technology, particularly in web development and IT asset management.",
+        "My expertise lies in crafting efficient and visually appealing web pages using HTML, CSS, JavaScript, and Python.",
+        "I'm always eager to learn and embrace new challenges, whether it's optimizing a user interface or managing IT assets effectively.",
+        "Currently, I'm exploring opportunities to grow in the IT field, with a keen interest in both technical and support roles."
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    const speed = 20; // Typing speed in milliseconds
+
+    function typeWriter() {
+        let currentText = texts[textIndex];
+        let currentChar = currentText.charAt(charIndex);
+
+        // Handle HTML tags properly by continuing to append characters until the tag is fully closed
+        if (currentChar === '<') {
+            while (currentChar !== '>') {
+                typewriterElement.innerHTML += currentChar;
+                charIndex++;
+                currentChar = currentText.charAt(charIndex);
+            }
+            typewriterElement.innerHTML += '>'; // Append the closing '>'
+        } else {
+            typewriterElement.innerHTML += currentChar;
+        }
+
+        charIndex++;
+        if (charIndex < currentText.length) {
+            setTimeout(typeWriter, speed);
+        } else {
+            charIndex = 0;
+            textIndex++;
+            if (textIndex < texts.length) {
+                typewriterElement.innerHTML += "<br><br>"; // Add a line break with space after each sentence
+                setTimeout(typeWriter, speed);
+            }
+        }
+    }
+
+    // Function to trigger typing effect when in view
+    function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                typewriterContainer.style.opacity = '1';
+                typeWriter();
+                observer.unobserve(entry.target); // Stop observing once the effect has been triggered
+            }
+        });
+    }
+    // Set up IntersectionObserver
+    const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.5
+    });
+
+    // Start observing the section
+    observer.observe(typewriterContainer);
+}); 
+    </script> </h3>
+    </section>
 
 
 
